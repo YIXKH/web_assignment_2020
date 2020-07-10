@@ -1,0 +1,78 @@
+﻿@model web_assignment_2020.Models.FlightSchedule
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+    <h4 class="PageTitle">Update Schedule ID: @Html.Display("ScheduleID") </h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="ScheduleID" class="control-label"></label>
+                <div class="form-control-plaintext">
+                    @Html.Display("ScheduleID")
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="FlightNumber" class="control-label"></label>
+                <div class="form-control-plaintext">
+                    @Html.Display("FlightNumber")
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="RouteID" class="control-label"></label>
+                <div class="form-control-plaintext">
+                    @Html.Display("RouteID")
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="AircraftID" class="control-label"></label>
+                <div class="form-control-plaintext">
+                    @Html.Display("AircraftID")
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="DepartureDateTime" class="control-label"></label>
+                <div class="form-control-plaintext">
+                    @Html.Display("DepartureDateTime")
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="ArrivalDateTime" class="control-label"></label>
+                <div class="form-control-plaintext">
+                    @Html.Display("ArrivalDateTime")
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="EconomyClassPrice" class="control-label"></label>
+                <div class="form-control-plaintext">
+                    @Html.Display("EconomyClassPrice")
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="BusinessClassPrice" class="control-label"></label>
+                <div class="form-control-plaintext">
+                    @Html.Display("BusinessClassPrice")
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Status" class="control-label"></label>
+                <select asp-for="Status"
+                        asp-items="@(new SelectList(
+ @ViewData["statusList"] as List <string>))" class="form-control"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

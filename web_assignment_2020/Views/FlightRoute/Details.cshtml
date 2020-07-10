@@ -1,0 +1,81 @@
+﻿@model IEnumerable<web_assignment_2020.Models.FlightScheduleViewModel>
+
+<h4 class="PageTitle">Flight Schedules for Route ID: @ViewData["routeID"] </h4>
+
+@if (Model.Count() > 0)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.ScheduleID)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FlightNumber)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.RouteID)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AircraftID)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DepartureDateTime)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ArrivalDateTime)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.EconomyClassPrice)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.BusinessClassPrice)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Status)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ScheduleID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FlightNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RouteID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AircraftID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DepartureDateTime)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ArrivalDateTime)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EconomyClassPrice)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.BusinessClassPrice)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Status)
+                    </td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+
+}
+else
+{
+    <h5 style="text-align: center;font-weight: bold;color: red;margin-top:250px;margin-bottom:250px;" >No flight schedules for selected flight route!</h5>
+}

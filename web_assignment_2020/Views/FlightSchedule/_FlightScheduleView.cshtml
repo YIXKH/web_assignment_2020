@@ -1,0 +1,79 @@
+﻿@model IEnumerable<web_assignment_2020.Models.FlightSchedule>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ScheduleID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FlightNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RouteID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AircraftID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DepartureDateTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ArrivalDateTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EconomyClassPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BusinessClassPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ScheduleID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FlightNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RouteID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AircraftID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DepartureDateTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ArrivalDateTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EconomyClassPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BusinessClassPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-controller="FlightSchedule"
+                   asp-route-id="@item.ScheduleID">Update Status</a>
+                <hr />
+                <a asp-action="Details" asp-controller="FlightSchedule"
+                   asp-route-id="@item.ScheduleID">Bookings</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

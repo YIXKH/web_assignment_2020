@@ -1,0 +1,92 @@
+﻿@model IEnumerable<web_assignment_2020.Models.BookingViewModel>
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h4 class="PageTitle">Bookings of Schedule ID: @Html.Display("ScheduleID") </h4>
+
+
+@if (Model.Count() > 0)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.BookingID)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CustomerID)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ScheduleID)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PassengerName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PassportNumber)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nationality)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SeatClass)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AmtPayable)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Remarks)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DateTimeCreated)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.BookingID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CustomerID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ScheduleID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PassengerName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PassportNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nationality)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SeatClass)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AmtPayable)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Remarks)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DateTimeCreated)
+                    </td>
+                    
+                </tr>
+            }
+        </tbody>
+    </table>
+
+}
+else
+{
+    <h5  style="text-align: center;font-weight: bold;color: red;margin-top:250px;margin-bottom:250px;" >No bookings for selected flight schedule!</h5>
+}

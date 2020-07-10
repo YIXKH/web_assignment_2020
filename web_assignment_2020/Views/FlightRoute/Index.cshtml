@@ -1,0 +1,8 @@
+﻿@model IEnumerable<web_assignment_2020.Models.FlightRoute>
+@{
+    ViewData["Title"] = "View Flight Routes";
+}
+<h4 class="PageTitle">View Flight Route</h4>
+<!-- Add a partial view to display a list of staff records
+ in a tabular format. -->
+<partial name="~/Views/FlightRoute/_FlightRouteView.cshtml" model="@Model" />

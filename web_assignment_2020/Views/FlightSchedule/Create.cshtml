@@ -1,0 +1,67 @@
+﻿@model web_assignment_2020.Models.FlightSchedule
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h4 class="PageTitle">Create Flight Schedule</h4>
+
+
+<h4>FlightSchedule</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="FlightNumber" class="control-label"></label>
+                <input asp-for="FlightNumber" class="form-control" />
+                <span asp-validation-for="FlightNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RouteID" class="control-label"></label>
+                <select asp-for="RouteID"
+                        asp-items="@(new SelectList(
+ @ViewData["routeIDList"] as List <int>))" class="form-control"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="AircraftID" class="control-label"></label>
+                <select asp-for="AircraftID"
+                        asp-items="@(new SelectList(
+ @ViewData["aircraftIDList"] as List <int>))" class="form-control"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="DepartureDateTime" class="control-label"></label>
+                <input asp-for="DepartureDateTime" class="form-control"
+                       min="@DateTime.Now.AddHours(24).ToString("yyyy-MM-ddTHH:mm")" />
+                <span asp-validation-for="DepartureDateTime" class="text-danger"></span>
+            </div>
+            
+
+            <div class="form-group">
+                <label asp-for="EconomyClassPrice" class="control-label"></label>
+                <input asp-for="EconomyClassPrice" class="form-control" />
+                <span asp-validation-for="EconomyClassPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BusinessClassPrice" class="control-label"></label>
+                <input asp-for="BusinessClassPrice" class="form-control" />
+                <span asp-validation-for="BusinessClassPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Status" class="control-label"></label>
+                <input asp-for="Status" class="form-control" />
+                <span asp-validation-for="Status" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

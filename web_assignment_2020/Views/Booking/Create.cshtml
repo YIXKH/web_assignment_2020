@@ -1,0 +1,124 @@
+﻿@model web_assignment_2020.Models.Booking
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h4 class="PageTitle">Ticket Booking</h4>
+<hr />
+<form asp-action="Create">
+    <fieldset class="FormContent">
+        <div class="form-group row">
+            <label asp-for="BookingID"
+                   class="col-sm-3 col-form-label"></label>
+            <div class="col-sm-9 col-md-5">
+                <input asp-for="BookingID" class="form-control" />
+                <span asp-validation-for="BookingID"
+                      class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="CustomerID"
+                   class="col-sm-3 col-form-label"></label>
+            <div class="col-sm-9 col-md-5">
+                <input asp-for="CustomerID" class="form-control" />
+                <span asp-validation-for="CustomerID"
+                      class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="ScheduleID"
+                   class="col-sm-3 col-form-label"></label>
+            <div class="col-sm-9 col-md-5">
+                <input asp-for="ScheduleID" class="form-control" />
+                <span asp-validation-for="ScheduleID"
+                      class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="PassengerName"
+                   class="col-sm-3 col-form-label"></label>
+            <div class="col-sm-9 col-md-5">
+                <input asp-for="PassengerName" class="form-control" />
+                <span asp-validation-for="PassengerName"
+                      class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="PassportNumber"
+                   class="col-sm-3 col-form-label"></label>
+            <div class="col-sm-9 col-md-5">
+                <input asp-for="PassportNumber" class="form-control" />
+                <span asp-validation-for="PassportNumber"
+                      class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="Nationality"
+                   class="col-sm-3 col-form-label"></label>
+            <div class="col-sm-9 col-md-5">
+                <select asp-for="Nationality"
+                        asp-items="@ViewData["CountryList"]
+ as List<SelectListItem>"
+                        class="form-control">
+                </select>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="SeatClass"
+                   class="col-sm-3 col-form-label"></label>
+            <div class="col-sm-9 col-md-5">
+                <div class="form-group form-check-inline">
+                    <label class="col-form-label">
+                        <input asp-for="SeatClass" type="radio" value="E"
+                               checked class="form-check-input" />
+                        <span>Economy</span>
+                    </label>
+                    <label class="col-form-label">
+                        <input asp-for="SeatClass" type="radio" value="B"
+                               class="form-check-input" />
+                        <span>Business</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="AmtPayable"
+                   class="col-sm-3 col-form-label"></label>
+            <div class="col-sm-9 col-md-5">
+                <input asp-for="AmtPayable" class="form-control" />
+                <span asp-validation-for="AmtPayable"
+                      class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="Remarks"
+                   class="col-sm-3 col-form-label"></label>
+            <div class="col-sm-9 col-md-5">
+                <input asp-for="Remarks" class="form-control" />
+                <span asp-validation-for="Remarks"
+                      class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="DateTimeCreated"
+                   class="col-sm-3 col-form-label"></label>
+            <div class="col-sm-9 col-md-5">
+                <input asp-for="DateTimeCreated" class="form-control" />
+                <span asp-validation-for="DateTimeCreated"
+                      class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-sm-9 offset-sm-3">
+                <input type="submit" value="Book"
+                       class="btn btn-primary" />
+            </div>
+        </div>
+        <div>
+            <a asp-action="Index">Back to List</a>
+        </div>
+    </fieldset>
+</form>
+
