@@ -16,13 +16,31 @@ namespace web_assignment_2020.Controllers
         private BookingDAL BookingContext = new BookingDAL();
         public ActionResult Create()
         {
-
-            if (HttpContext.Session.GetString("Role") == "Customer")
+            /*
+            if (HttpContext.Session.GetString("Role") != "Customer")
             {
                 return RedirectToAction("Index", "Home");
             }
+            */
             ViewData["CountryList"] = GetCountries();
-            return View();
+            Booking booking = new Booking();
+            return View(booking);
+        }
+        [HttpPost]
+        public ActionResult Create(Booking booking)
+        {
+            ViewData["CountryList"] = GetCountries();
+            if (ModelState.IsValid)
+            {
+                booking.BookingID = BookingContext.Add(booking);
+                return RedirectToAction("AdminMain", "Home");
+            }
+            else
+            {
+                //Input validation fails, return to the Create view
+                //to display error message
+                return View(booking);
+            }
         }
         private List<SelectListItem> GetCountries()
         {

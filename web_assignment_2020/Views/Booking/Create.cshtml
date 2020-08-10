@@ -9,15 +9,6 @@
 <form asp-action="Create">
     <fieldset class="FormContent">
         <div class="form-group row">
-            <label asp-for="BookingID"
-                   class="col-sm-3 col-form-label"></label>
-            <div class="col-sm-9 col-md-5">
-                <input asp-for="BookingID" class="form-control" />
-                <span asp-validation-for="BookingID"
-                      class="text-danger"></span>
-            </div>
-        </div>
-        <div class="form-group row">
             <label asp-for="CustomerID"
                    class="col-sm-3 col-form-label"></label>
             <div class="col-sm-9 col-md-5">
@@ -70,12 +61,12 @@
             <div class="col-sm-9 col-md-5">
                 <div class="form-group form-check-inline">
                     <label class="col-form-label">
-                        <input asp-for="SeatClass" type="radio" value="E"
+                        <input asp-for="SeatClass" type="radio" value="Economy"
                                checked class="form-check-input" />
                         <span>Economy</span>
                     </label>
                     <label class="col-form-label">
-                        <input asp-for="SeatClass" type="radio" value="B"
+                        <input asp-for="SeatClass" type="radio" value="Business"
                                class="form-check-input" />
                         <span>Business</span>
                     </label>
@@ -104,7 +95,7 @@
             <label asp-for="DateTimeCreated"
                    class="col-sm-3 col-form-label"></label>
             <div class="col-sm-9 col-md-5">
-                <input asp-for="DateTimeCreated" class="form-control" />
+                <input asp-for="DateTimeCreated" class="form-control" readonly/>
                 <span asp-validation-for="DateTimeCreated"
                       class="text-danger"></span>
             </div>
